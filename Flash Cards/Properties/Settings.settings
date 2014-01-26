@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Flash_Cards.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MainWindowWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">275</Value>
+    </Setting>
+    <Setting Name="MainWindowHeight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">245</Value>
+    </Setting>
+    <Setting Name="EditWindowWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">475</Value>
+    </Setting>
+    <Setting Name="EditWindowHeight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">325</Value>
+    </Setting>
+    <Setting Name="Extension_MasterFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">fcd</Value>
+    </Setting>
+    <Setting Name="Extension_SessionFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">fcs</Value>
+    </Setting>
+    <Setting Name="ButtonText_ShowAnswer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Show &amp;Answer</Value>
+    </Setting>
+    <Setting Name="ButtonText_ComeBackLater" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Come back to this &amp;later</Value>
+    </Setting>
+    <Setting Name="ButtonText_AnswerCorrect" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">I answered &amp;Correctly</Value>
+    </Setting>
+    <Setting Name="ButtonText_AnswerIncorrect" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">I did &amp;Not answer correctly</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,766 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deck ID="68834ED5-F342-4E72-9FA2-F1D72C87A654" Title="MCPD 70-547" xmlns="http://www.erwinefamily.net/FlashCards/Deck">
+  <Categories>
+    <Category ID="047911B7-6C99-423E-BED1-092704AE68E7" Name="Chapter 1" />
+    <Category ID="AC280794-346C-4FD4-B58E-C0819D1C1FC3" Name="Chapter 2" />
+  </Categories>
+  <Cards>
+    <Card ID="461B9B25-AAD2-404F-829B-603F92EDB4BF" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Name the common types, or categories, of requirements.\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Requirements should be seen from multiple perspectives. These include business, user, functional, and quality-of-service perspectives.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="5EA380FF-8C86-48F1-8689-2ADE6373560B" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 What is a quality-of-service (QOS) requirement?\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 A QOS requirement defines a contractual requirement that the system must meet. These requirements are often used to define scalability, performance, and other nonfunctional requirements.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="93FC23A9-6767-412C-9EA7-85FD893F0B49" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 What are the characteristics of a good requirement?\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 A good requirement should be unambiguous, complete, necessary, and feasible.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="A362BAF0-36E6-4F09-A76E-0A0104C2821A" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <MultipleChoice>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 You have been given the requirement \ldblquote The application should log all system failures and generate a support ticket to ensure proper follow-up and response.\rdblquote  This is an example of what type of requirement?\par
+          \fs29\par
+          }
+        </Question>
+        <Choices>
+          <Choice Correct="true">
+            <Value>Business requirement</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 This requirement is talking about supportability. That is a quality-ofservice requirement./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="false">
+            <Value>Quality-of-service requirement</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 A business requirement defines an actionable, measurable feature for the system from the business perspective./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="false">
+            <Value>User requirement</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 A user requirement defines a task the users need to be able to perform to meet the objectives of their jobs./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="false">
+            <Value>Functional requirement</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 A functional requirement is a specification for a developer./par
+              }
+            </Explanation>
+          </Choice>
+        </Choices>
+      </MultipleChoice>
+    </Card>
+    <Card ID="AFA8540E-54E1-47E3-942D-B0B847E1E66A" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <MultipleChoice>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Requirements are useful for which of the following? (Choose all that apply.)\par
+          }
+        </Question>
+        <Choices>
+          <Choice Correct="true">
+            <Value>Allowing testers to confirm if the implemented application is acceptable</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 Testers can trace the application back to the agreed-on set of requirements./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="false">
+            <Value>Defining the process a user will perform to accomplish a given task</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 The process by which a user accomplishes a given task is a use case (or scenario) and not a requirement./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="true">
+            <Value>Defining a common understanding of scope among the business, users, and project team</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 The principal benefit of documenting requirements is gaining a consensus on the business problem that is to be solved./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="true">
+            <Value>Determining which technologies should be used for the application</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 The requirements should feed the technology recommendations./par
+              }
+            </Explanation>
+          </Choice>
+        </Choices>
+      </MultipleChoice>
+    </Card>
+    <Card ID="CE62B860-8F20-489D-8AA8-C8470DEBB451" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <MultipleChoice>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}{\f1\fnil\fcharset2 Symbol;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Given the following requirements, which client technology would you recommend?\par
+          \par
+          \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}Users expect a highly interactive experience. They should not have to wait for multiple seconds between requests.\par
+          {\pntext\f1\'B7\tab}The application must work on Microsoft Windows, Unix, and Macintosh computers.\par
+          {\pntext\f1\'B7\tab}The users should be able to run the application only from their corporate computers.\par
+          \pard\par
+          }
+        </Question>
+        <Choices>
+          <Choice Correct="false">
+            <Value>Standard browser-based client</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 A standard browser-based client does not support the high interactivity required./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="true">
+            <Value>AJAX-enabled client</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 Using AJAX inside a browser will facilitate a good user experience and work with multiple browsers on multiple operating systems./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="false">
+            <Value>Mobile client</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 Users cannot connect outside of their corporate PC./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="false">
+            <Value>Smart Client</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 The Smart Client will not work on non-Windows operating systems./par
+              }
+            </Explanation>
+          </Choice>
+        </Choices>
+      </MultipleChoice>
+    </Card>
+    <Card ID="8CA083B7-724F-4C93-AF15-11F6C5F2F870" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <MultipleChoice>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}{\f1\fnil\fcharset2 Symbol;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Given the following requirements, which data storage technology would you recommend?\par
+          \par
+          \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}Users should be able to work with the application when they are not connected to the Internet.\par
+          {\pntext\f1\'B7\tab}The application\rquote s data is retrieved and aggregated from multiple sources on a monthly basis. After the updated data is posted, users should receive it.\par
+          {\pntext\f1\'B7\tab}The application should have a small footprint on the user\rquote s computer or device.\par
+          \pard\par
+          }
+        </Question>
+        <Choices>
+          <Choice Correct="false">
+            <Value>SQL Enterprise</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 There is no justification for SQL Enterprise in this situation./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="false">
+            <Value>SQL Express</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 SQL Express would work. However, it takes up more hard drive space than SQL Everywhere. In addition, it does not synchronize as easily./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="true">
+            <Value>SQL Everywhere (Mobile)</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 This offers a low-impact install with the ability to work while disconnected. Users have to get database updates only on a monthly basis./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="false">
+            <Value>SQL Standard</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 This is too big and too costly to install on each user’s computer or device./par
+              }
+            </Explanation>
+          </Choice>
+        </Choices>
+      </MultipleChoice>
+    </Card>
+    <Card ID="877CA4AD-694B-42AF-8AA7-F81432CEBBF8" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 What is the primary purpose of creating a prototype?\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 A good prototype answers the questions left open from the requirements and technology recommendations.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="AB5AE181-87DA-4C4C-9409-EC878CAE75A4" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 What is the difference between a mockup and a proof-of-concept prototype?\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Mockups are a horizontal view of the application at the UI level. A proof of concept takes a vertical slice of the application and implements it across the layers.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="9E4D3685-D4C3-4CF9-8769-39D238939B6D" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 What is meant by the term reference architecture?\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 A reference architecture is an implementation of the architecture across the application layers. For example, this might include an ASP.NET Web page, a set of business objects, the data access methods, and the data storage solution-all for a single feature.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="C3418D67-5B59-48FC-B867-967031F8F311" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}{\f1\fnil\fcharset2 Symbol;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Review the following questions, which you need to answer with your prototype. Based on these questions, what type of prototype should you create?\par
+          \par
+          \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}How will users be led through the search, review, and purchase process?\par
+          {\pntext\f1\'B7\tab}How will the user identify the features and actions of the system without extensive training?\par
+          {\pntext\f1\'B7\tab}What are the common types of screens required for the application?\b\fs24\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\b\f0\fs29 Mockup prototype\b0\par
+          \b Correct:\b0  A mockup prototype, also called a horizontal prototype, fills in the gaps that exist in the understanding of the UI.\par
+          \par
+          \b Vertical prototype\b0\par
+          \b Incorrect:\b0  A vertical prototype covers a vertical slice of the entire application. These requirements consider only gaps in the understanding of the UI.\par
+          \par
+          \b Proof-of-concept prototype\b0\par
+          \b Incorrect:\b0  A proof-of-concept prototype validates the application\rquote s architecture and technology. These requirements consider only gaps in the understanding of the UI.\par
+          \par
+          \b Reference architecture prototype\b0\par
+          \b Incorrect:\b0  A reference architecture is another term for a proof-of-concept prototype. These requirements consider only gaps in the understanding of the UI.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="A6247EE3-AB5D-4FBA-8C64-ED57C9F7CEA8" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <MultipleChoice>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 You need to confirm the estimates for your project. Which of the following prototype steps should you take? (Choose all that apply.)\par
+          }
+        </Question>
+        <Choices>
+          <Choice Correct="true">
+            <Value>Create a reference architecture.</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 A reference architecture will give you an understanding of the level of effort for the various layers in the system./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="true">
+            <Value>Define the screens, their types, and their complexities.</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 You can help validate your estimates by getting an accurate picture of the screens, the screen types, and their complexities./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="true">
+            <Value>Create a working prototype of each unique element defined by the application.</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 A reference architecture takes a look across the layers. Look also at unique elements in the UI and elsewhere to confirm your scope and the effort that will be required./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="false">
+            <Value>Update the requirements based on the findings from your prototype.</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 You should update your requirements. However, this does not help you validate your estimates./par
+              }
+            </Explanation>
+          </Choice>
+        </Choices>
+      </MultipleChoice>
+    </Card>
+    <Card ID="E25AA142-D3B7-4357-9E13-236650CFD790" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <MultipleChoice>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Which of the following should you consider when evaluating your proposed security model? (Choose all that apply.)\par
+          }
+        </Question>
+        <Choices>
+          <Choice Correct="true">
+            <Value>User authentication mechanism</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 You need to confirm your authentication mechanism (forms or Windows)./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="true">
+            <Value>User authorization methods</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 You need to verify your approach to how users will be authorized to access features and data./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="true">
+            <Value>Resources control</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 You should evaluate how key resources, such as files or connection strings, will be secured./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="true">
+            <Value>Connectivity</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 You should work with the infrastructure team to determine whether your recommendations are feasible in terms of firewall rules and so on./par
+              }
+            </Explanation>
+          </Choice>
+        </Choices>
+      </MultipleChoice>
+    </Card>
+    <Card ID="6EF7BDB0-8DE0-4AF9-942A-4FCB644070D7" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <MultipleChoice>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 You need to evaluate the effectiveness of your prototype. Which of the following might lead you to believe your prototype was effective? (Choose all that apply.)\par
+          }
+        </Question>
+        <Choices>
+          <Choice Correct="true">
+            <Value>A number of gaps were identified in the requirements.</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 The intent of a prototype is to uncover gaps. You know you’ve done your job when you see this happen./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="false">
+            <Value>The use cases were validated as correct and sufficient.</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 This might be true; however, it does not indicate that the prototype was effective. It might indicate either that the prototype did not go far enough or that it was not warranted./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="true">
+            <Value>Certain areas of the application were exposed as requiring additional focus in terms of design.</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 This is a good sign. You need to identify areas of high risk and work to reduce this risk./par
+              }
+            </Explanation>
+          </Choice>
+          <Choice Correct="false">
+            <Value>The new technologies that were recommended worked just as expected.</Value>
+            <Explanation>
+              {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+              {\colortbl ;\red0\green0\blue0;}
+              \viewkind4\uc1\pard\cf1\f0\fs29 This rarely happens with new technology. You need to make sure that the prototype went far enough. If it did, that’s great. However, by itself, this fact does not indicate effectiveness./par
+              }
+            </Explanation>
+          </Choice>
+        </Choices>
+      </MultipleChoice>
+    </Card>
+    <Card ID="0560992F-3926-409F-B83B-3FA9BC909376" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "application library".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 A set of components (and, many times, source code) that you can use in your solution.\par
+          \par
+          An application library typically encapsulates a set of features that is common to many applications. For example, the Microsoft Enterprise Library provides features for caching, error management, configuration, and more.\fs29\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="3753BED9-7624-496F-999F-BF00FD740728" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "application server".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 The term for the server software that runs your server code (typically, ASP.NET and the .NET Framework). Internet Information Services (IIS) is an application server.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="F268786C-3667-48E9-BBBD-46092365492E" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "business requirement".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 A requirement that defines the success factors from the perspective of project stakeholders. A business requirement represents what the business believes to be important for the success of the project.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="94AE95EA-614A-4128-A9E3-75F5FBD56021" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "client".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 A technology choice about how an application will be presented to the users.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="0147318A-9E10-4124-A68F-AA484F50999B" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "data storage".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Represents how your application will store and provide access to its data.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="7D3F529E-A04F-4DC2-9AC6-5436E4078379" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "framework".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 A set of base classes and components that abstract much of the architectural \ldblquote plumbing\rdblquote  away from the developer.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="BF198F5E-E49C-4EAB-A2CA-6565F51D9123" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "functional requirement".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Same as "functional specification".\par
+          \par
+          A requirement that defines a feature from the perspective of a developer. A developer should be able to review the specification or requirement and implement to that specification.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="A70E3DDE-6739-4A1C-BE28-81C88088FD99" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "functional specification".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Same as "functional requirement".\par
+          \par
+          A requirement that defines a feature from the perspective of a developer. A developer should be able to review the specification or requirement and implement to that specification.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="624D32D2-3E29-4373-B62A-BC7C7D040D53" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "horizontal prototype".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Same as "mockup".\par
+          \par
+          A set of UI screens that helps verify the application\rquote s navigation, requirements, and use cases (also called a UI mockup or horizontal prototype).\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="9BB36878-F4CD-4783-A54F-1AACDB3A9074" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define"mockup".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 A set of UI screens that helps verify the application\rquote s navigation, requirements, and use cases (also called a UI mockup or horizontal prototype).\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="FE254A6A-23FD-49C9-BF1D-9C2FF873E9B1" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "proof-of-concept prototype".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Same as "vertical prototype".\par
+          \par
+          A complete implementation of a feature through the architecture of the system. It looks at the application across the entire stack (UI, services, business objects, and database). It is meant to confirm the technology recommendations and high-level design.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="4C9927B8-890E-4F0F-9D22-346917FEEB22" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "quality-of-service (QOS) requirement".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 A requirement that defines nonfunctional requirements for the system around things such as performance, scalability, and standards.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="9504AFA2-C009-44BA-9F43-2C057CEB2811" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "reference architecture".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Similar to a proof-ofconcept prototype. It provides a reference implementation across the vertical stack of the application for the development team. It gives the developers a model on just how they should implement their code.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="D0148EDA-5E5D-4A31-9FBA-85B7D37C96BF" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "third-party control".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 A control that is not created or maintained by the project team. Developers use these controls to shorten the schedule length and reduce risk. A thirdparty control can be something embedded in the Visual Studio Toolbox and used on a Web form, or it could be an entire application such as Microsoft BizTalk Server or Commerce Server.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="5B3B6DF7-A16F-4925-B8B9-23AA1BFC8EFC" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "use case".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 A description of tasks centered on a common user goal. Use cases are typically written by a business analyst. An example of a use case might be the set of tasks a user follows to rent a video or buy a product. Also called a user scenario.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="A7A18069-26BD-42ED-AF75-FBB057DD356D" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "user requirements".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 A requirement that defines a task the users must be able to accomplish to meet the objectives of their jobs.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+    <Card ID="2002D653-D7F2-4A1C-ADF5-189F736D2B3D" CategoryID="047911B7-6C99-423E-BED1-092704AE68E7">
+      <FillIn>
+        <Question>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Define "vertical prototype".\par
+          }
+        </Question>
+        <Answer>
+          {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+          {\colortbl ;\red0\green0\blue0;}
+          \viewkind4\uc1\pard\cf1\f0\fs29 Same as "proof-of-concept prototype".\par
+          \par
+          A complete implementation of a feature through the architecture of the system. It looks at the application across the entire stack (UI, services, business objects, and database). It is meant to confirm the technology recommendations and high-level design.\par
+          }
+        </Answer>
+      </FillIn>
+    </Card>
+  </Cards>
+</Deck>

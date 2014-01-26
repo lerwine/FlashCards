@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Erwine.Leonard.Thomas.Flash_Cards.Data.Deck" Collapsed="true">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgICAACAA0MAIAACEAABKAAAAEEAAAAAQAAAAAAA=</HashCode>
+      <FileName>Deck\Deck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Erwine.Leonard.Thomas.Flash_Cards.Data.Card" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAACACAAgAAAAADAAAACAIAAAAAAAAgAAAAABAA=</HashCode>
+      <FileName>Card\Card.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Erwine.Leonard.Thomas.Flash_Cards.Data.FloatingPointProblemCard">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAIAACQAAAQAAACAAAACAAAAAAAAAAAAAgAABAA=</HashCode>
+      <FileName>Card\FloatingPointProblemCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Erwine.Leonard.Thomas.Flash_Cards.Data.FractionProblemCard">
+    <Position X="2.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIgAIAACAAAAQAAgCAgAACAAAABAAAAAAAAAAABAA=</HashCode>
+      <FileName>Card\FractionProblemCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Erwine.Leonard.Thomas.Flash_Cards.Data.MultipleChoiceCard">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAACAQAAgABACAAAACAAAAAAAEAAAAAAAABAA=</HashCode>
+      <FileName>Card\MultipleChoiceCard.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Choices" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Erwine.Leonard.Thomas.Flash_Cards.Data.NumberProblemCard">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAwAIAACAACAQAAgCAAAACAAAAAAAAAAAAAgAABAA=</HashCode>
+      <FileName>Card\NumberProblemCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Erwine.Leonard.Thomas.Flash_Cards.Data.QandACard">
+    <Position X="0.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAACQAAABAAACAAAACAAAAAAAEAAAAAgAABAA=</HashCode>
+      <FileName>Card\QandACard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Erwine.Leonard.Thomas.Flash_Cards.Data.MultipleChoiceItem">
+    <Position X="6.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAgAAAIAAA=</HashCode>
+      <FileName>MultipleChoiceItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

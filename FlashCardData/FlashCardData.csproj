@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0416584C-67F7-4FE2-8FF2-1322E8CC3D8A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Erwine.Leonard.Thomas.Flash_Cards.Data</RootNamespace>
+    <AssemblyName>FlashCardData</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Card\Card.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Card\Card.Designer.cs">
+      <DependentUpon>Card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Card\CardNotLoadedException.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Category\Category.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Category\Category.Designer.cs">
+      <DependentUpon>Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deck\Deck.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Deck\Deck.Designer.cs">
+      <DependentUpon>Deck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deck\DeckNotLoadedException.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Card\FloatingPointProblemCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Card\FloatingPointProblemCard.Designer.cs">
+      <DependentUpon>FloatingPointProblemCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Card\FractionProblemCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Card\FractionProblemCard.Designer.cs">
+      <DependentUpon>FractionProblemCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Card\MultipleChoiceCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Card\MultipleChoiceCard.Designer.cs">
+      <DependentUpon>MultipleChoiceCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Card\NumberProblemCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Card\NumberProblemCard.Designer.cs">
+      <DependentUpon>NumberProblemCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Card\MultipleChoiceItem.cs" />
+    <Compile Include="DropDownItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Card\QandACard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Card\QandACard.Designer.cs">
+      <DependentUpon>QandACard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Card\Card.resx">
+      <DependentUpon>Card.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category\Category.resx">
+      <DependentUpon>Category.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deck\Deck.resx">
+      <DependentUpon>Deck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <EmbeddedResource Include="Deck\Deck.xsd">
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Deck\DropDownInfo.xsd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="Session.xsd">
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Deck\XMLFile1.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

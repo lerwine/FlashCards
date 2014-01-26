@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.erwinefamily.net/FlashCards/Session" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:fcs="http://www.erwinefamily.net/FlashCards/Session">
+  <xs:element name="Session">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="Card">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LastResponse" minOccurs="0" maxOccurs="1" type="xs:string" />
+            </xs:sequence>
+            <xs:attribute name="ID" type="fcs:GuidType" use="required" />
+            <xs:attribute name="Tagged" type="xs:boolean" use="required" />
+            <xs:attribute name="Correct" type="xs:boolean" use="optional" />
+            <xs:attribute name="Order" type="xs:integer" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="DeckID" type="fcs:GuidType" use="required" />
+      <xs:attribute name="PracticeMode" type="xs:boolean" use="required" />
+      <xs:attribute name="TimedMode" type="xs:boolean" use="required" />
+      <xs:attribute name="LastDeckPath" type="fcs:NonEmptySTringType" use="required" />
+      <xs:attribute name="TimeSpan" type="fcs:TimeSpanType" use="optional" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="TimeSpanType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="^\d{1,2}(:\d{2}(:\d{2})?)?$" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="NonEmptySTringType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="GuidType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="^[A-Z\d]{8}-[A-Z\d]{4}-[A-Z\d]{4}-[A-Z\d]{4}-[A-Z\d]{12}$" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

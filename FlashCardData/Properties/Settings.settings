@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Erwine.Leonard.Thomas.Flash_Cards.Data.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DeckNamespace" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.erwinefamily.net/FlashCards/Deck</Value>
+    </Setting>
+    <Setting Name="DropDownInfoNamespace" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">urn:FlashCardsDropDownInfo</Value>
+    </Setting>
+    <Setting Name="XMLSchemaNamespace" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.w3.org/2001/XMLSchema</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

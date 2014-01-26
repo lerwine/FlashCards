@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified"
+           targetNamespace="urn:FlashCardsDropDownInfo" elementFormDefault="qualified" 
+           xmlns="urn:FlashCardsDropDownInfo" xmlns:ddi="urn:FlashCardsDropDownInfo"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ListItem">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="Display" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

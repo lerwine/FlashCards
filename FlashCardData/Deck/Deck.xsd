@@ -1,0 +1,1716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.erwinefamily.net/FlashCards/Deck" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:fcd="http://www.erwinefamily.net/FlashCards/Deck">
+  <xs:element name="Deck">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Categories" type="fcd:CardCategoryCollectionType">
+          <xs:unique name="CategoryName">
+            <xs:selector xpath="fcd:Category" />
+            <xs:field xpath="@Name" />
+          </xs:unique>
+        </xs:element>
+        <xs:element name="Cards" type="fcd:CardCollectionType">
+          <xs:keyref name="CardCategory" refer="fcd:CategoryKey">
+            <xs:selector xpath="fcd:Card" />
+            <xs:field xpath="@CategoryID" />
+          </xs:keyref>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="ID" type="fcd:GuidType" use="required" />
+      <xs:attribute name="Title" type="fcd:NonEmptySTringType" use="required" />
+      <xs:attribute name="ForeColor" type="fcd:Color" use="required" />
+      <xs:attribute name="BorderColor" type="fcd:Color" use="required" />
+      <xs:attribute name="BackColor1" type="fcd:Color" use="required" />
+      <xs:attribute name="BackColor2" type="fcd:Color" use="required" />
+      <xs:attribute name="FillType" type="fcd:FillType" use="required" />
+    </xs:complexType>
+    <xs:key name="CategoryKey">
+      <xs:selector xpath="fcd:Categories/fcd:Category" />
+      <xs:field xpath="@ID" />
+    </xs:key>
+  </xs:element>
+
+  <xs:complexType name="CardCategoryCollectionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Category" type="fcd:CardCategoryType" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="CardCategoryType">
+    <xs:attribute name="ID" type="fcd:GuidType" use="required" />
+    <xs:attribute name="Name" type="fcd:NonEmptySTringType" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="CardCollectionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Card" type="fcd:CardType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CardType">
+    <xs:choice minOccurs="1" maxOccurs="1">
+      <xs:element name="NumberProblem" type="fcd:NumberCardType" />
+      <xs:element name="FloatingPointProblem" type="fcd:FloatingPointCardType" />
+      <xs:element name="FractionProblem" type="fcd:FractionCardType" />
+      <xs:element name="MultipleChoice" type="fcd:MultipleChoiceCardType" />
+      <xs:element name="QandA" type="fcd:QandACardType" />
+    </xs:choice>
+    <xs:attribute name="ID" type="fcd:GuidType" use="required" />
+    <xs:attribute name="CategoryID" type="fcd:GuidType" use="optional" />
+  </xs:complexType>
+
+  <xs:complexType name="FractionCardType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="NumeratorAnswer" type="xs:integer" use="required" />
+        <xs:attribute name="DenominatorAnswer" type="xs:integer" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="FloatingPointCardType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Answer" type="xs:double" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="NumberCardType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="NumberAnswer" type="xs:long" use="required" />
+        <xs:attribute name="RemainderAnswer" type="xs:long" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="MultipleChoiceCardType">
+    <xs:all>
+      <xs:element name="Question" type="xs:string" />
+      <xs:element name="Choices">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="2" maxOccurs="unbounded" name="Choice">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="Value" type="xs:string" />
+                  <xs:element name="Explanation" type="xs:string" minOccurs="0" />
+                </xs:all>
+                <xs:attribute name="Correct" type="xs:boolean" use="required" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="QandACardType">
+    <xs:all>
+      <xs:element name="Question" type="xs:string" />
+      <xs:element name="Answer" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:simpleType name="NonEmptySTringType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="GuidType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="^[a-z\d]{8}-[a-z\d]{4}-[a-z\d]{4}-[a-z\d]{4}-[a-z\d]{12}$" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Color">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AliceBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Alice Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AntiqueWhite">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Antique White" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Aqua">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Aqua" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Aquamarine">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Aquamarine" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Azure">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Azure" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Beige">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Beige" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Bisque">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Bisque" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Black">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Black" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BlanchedAlmond">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Blanched Almond" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Blue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BlueViolet">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Blue Violet" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Brown">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Brown" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BurlyWood">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Burly Wood" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CadetBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Cadet Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Chartreuse">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Chartreuse" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Chocolate">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Chocolate" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Coral">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Coral" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CornflowerBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Cornflower Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Cornsilk">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Cornsilk" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Crimson">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Crimson" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Cyan">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Cyan" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkCyan">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Cyan" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkGoldenrod">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Goldenrod" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkGray">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Gray" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkGreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkKhaki">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Khaki" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkMagenta">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Magenta" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkOliveGreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Olive Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkOrange">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Orange" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkOrchid">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Orchid" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkRed">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Red" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkSalmon">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Salmon" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkSeaGreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Sea Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkSlateBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Slate Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkSlateGray">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Slate Gray" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkTurquoise">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Turquoise" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkViolet">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Violet" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DeepPink">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Deep Pink" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DeepSkyBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Deep Sky Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DimGray">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dim Gray" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DodgerBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dodger Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Firebrick">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Firebrick" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FloralWhite">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Floral White" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ForestGreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Forest Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Fuchsia">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Fuchsia" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Gainsboro">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Gainsboro" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GhostWhite">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Ghost White" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Gold">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Gold" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Goldenrod">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Goldenrod" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Gray">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Gray" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Green">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GreenYellow">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="GreenY ellow" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Honeydew">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Honeydew" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="HotPink">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Hot Pink" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IndianRed">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Indian Red" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Indigo">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Indigo" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Ivory">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Ivory" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Khaki">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Khaki" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Lavender">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Lavender" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LavenderBlush">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Lavender Blush" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LawnGreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Lawn Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LemonChiffon">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Lemon Chiffon" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightCoral">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Coral" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightCyan">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Cyan" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightGoldenrodYellow">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Goldenrod Yellow" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightGray">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Gray" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightGreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightPink">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Pink" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightSalmon">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Salmon" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightSeaGreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Sea Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightSkyBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Sky Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightSlateGray">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Slate Gray" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightSteelBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Steel Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightYellow">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Yellow" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Lime">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Lime" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LimeGreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Lime Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Linen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Linen" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Magenta">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Magenta" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Maroon">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Maroon" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MediumAquamarine">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Medium Aquamarine" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MediumBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Medium Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MediumOrchid">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Medium Orchid" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MediumPurple">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Medium Purple" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MediumSeaGreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Medium Sea Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MediumSlateBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Medium Slate Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MediumSpringGreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Medium Spring Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MediumTurquoise">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Medium Turquoise" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MediumVioletRed">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Medium Violet Red" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MidnightBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Midnight Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MintCream">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Mint Cream" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MistyRose">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Misty Rose" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Moccasin">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Moccasin" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NavajoWhite">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Navajo White" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Navy">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Navy" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OldLace">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Old Lace" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Olive">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Olive" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OliveDrab">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Olive Drab" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Orange">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Orange" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OrangeRed">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="OrangeRed" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Orchid">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Orchid" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PaleGoldenrod">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Pale Goldenrod" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PaleGreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Pale Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PaleTurquoise">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Pale Turquoise" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PaleVioletRed">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Pale Violet Red" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PapayaWhip">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Papaya Whip" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PeachPuff">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Peach Puff" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Peru">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Peru" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Pink">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Pink" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Plum">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Plum" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PowderBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Powder Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Purple">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Purple" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Red">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Red" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RosyBrown">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Rosy Brown" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RoyalBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Royal Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SaddleBrown">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Saddle Brown" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Salmon">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Salmon" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SandyBrown">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Sandy Brown" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SeaGreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Sea Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SeaShell">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Sea Shell" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Sienna">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Sienna" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Silver">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Silver" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SkyBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Sky Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SlateBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Slate Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SlateGray">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Slate Gray" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Snow">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Snow" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SpringGreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Spring Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SteelBlue">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Steel Blue" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Tan">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Tan" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Teal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Teal" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Thistle">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Thistle" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Tomato">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Tomato" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Transparent">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Transparent" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Turquoise">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Turquoise" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Violet">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Violet" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Wheat">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Wheat" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="White">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="White" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WhiteSmoke">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="White Smoke" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Yellow">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Yellow" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="YellowGreen">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Yellow Green" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="WrapMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Tile">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Tile" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Tiles the gradient or texture.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TileFlipX">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Tile, Flip X-axis" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Reverses the texture or gradient horizontally and then tiles the texture or gradient.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TileFlipY">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Tile, Flip Y-axis" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Reverses the texture or gradient vertically and then tiles the texture or gradient.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TileFlipXY">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Tile, Flip X and Y axes" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Reverses the texture or gradient horizontally and vertically and then tiles the texture or gradient.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Clamp">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Not Tiled" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[The texture or gradient is not tiled.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="FillType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SolidColor">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Solid Color" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="HatchFill">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Hatch Fill" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TextureFill">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Texture Fill (Image)" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="VerticalGradient">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Vertical Color Gradient" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="HorizontalGradient">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Horizontal Color Gradient" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DiagonalGradientUlLr">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Diagonal Gradient (U/L-L/R)" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DiagonalGradientUrLl">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Diagonal Gradient (U/R-L/L)" xmlns="urn:FlashCardsDropDownInfo" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HatchStyle">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Horizontal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Horizontal Lines" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[A pattern of horizontal lines.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Vertical">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Horizontal Lines" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[A pattern of vertical lines.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ForwardDiagonal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Forward Diagonal Lines" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[A pattern of lines on a diagonal from upper left to lower right.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BackwardDiagonal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Backward Diagonal Lines" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[A pattern of lines on a diagonal from upper right to lower left.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Cross">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Small Gridlines" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies horizontal and vertical lines that cross.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LargeGrid">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Large Gridlines" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies large horizontal and vertical lines that cross.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DiagonalCross">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Diagonal Cross Lines" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[A pattern of crisscross diagonal lines.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Percent05">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="5% Hatch" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a 5-percent hatch.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Percent10">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="10% Hatch" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a 10-percent hatch.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Percent20">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="20% Hatch" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a 20-percent hatch.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Percent25">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="25% Hatch" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a 25-percent hatch.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Percent30">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="30% Hatch" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a 30-percent hatch.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Percent40">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="40% Hatch" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a 40-percent hatch.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Percent50">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="50% Hatch" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a 50-percent hatch.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Percent60">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="60% Hatch" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a 60-percent hatch.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Percent70">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="70% Hatch" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a 70-percent hatch.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Percent75">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="75% Hatch" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a 75-percent hatch.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Percent80">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="80% Hatch" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a 80-percent hatch.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Percent90">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="90% Hatch" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a 90-percent hatch.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightDownwardDiagonal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Downward Diagonal" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies diagonal lines that slant to the right from top points to bottom points and are spaced 50 percent closer together than normal Forward Diagonal hatch style, but are not antialiased.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightUpwardDiagonal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Upward Diagonal" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies diagonal lines that slant to the left from top points to bottom points and are spaced 50 percent closer together than normal Backward Diagonal hatch style, but they are not antialiased.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkDownwardDiagonal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Downward Diagonal" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies diagonal lines that slant to the right from top points to bottom points, are spaced 50 percent closer together than, and are twice the width of normal Forward Diagonal hatch style. This hatch pattern is not antialiased.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkUpwardDiagonal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Upward Diagonal" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies diagonal lines that slant to the left from top points to bottom points, are spaced 50 percent closer together than normal Backward Diagonal hatch style, and are twice its width, but the lines are not antialiased.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WideDownwardDiagonal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Wide Downward Diagonal" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies diagonal lines that slant to the right from top points to bottom points, have the same spacing as normal Forward Diagonal hatch style, and are triple its width, but are not antialiased.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WideUpwardDiagonal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Wide Upward Diagonal" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies diagonal lines that slant to the left from top points to bottom points, have the same spacing as Backward Diagonal hatch style, and are triple its width, but are not antialiased.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightVertical">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Vertical" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies vertical lines that are spaced 50 percent closer together than normal Vertical.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LightHorizontal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Light Horizontal" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies horizontal lines that are spaced 50 percent closer together than normal Horizontal.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NarrowVertical">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Narrow Vertical" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies vertical lines that are spaced 75 percent closer together than normal Vertical hatch style(or 25 percent closer together than Light Vertical hatch style).]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NarrowHorizontal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Narrow Horizontal" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies horizontal lines that are spaced 75 percent closer together than normal Horizontal hatch style (or 25 percent closer together than Light Horizontal hatch style).]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkVertical">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Vertical" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies vertical lines that are spaced 50 percent closer together than normal Vertical hatch style and are twice its width.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DarkHorizontal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dark Horizontal" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies horizontal lines that are spaced 50 percent closer together than normal Horizontal hatch style and are twice the width]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DashedDownwardDiagonal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dashed Downward Diagonal" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies dashed diagonal lines, that slant to the right from top points to bottom points.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DashedUpwardDiagonal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dashed Upward Diagonal" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies dashed diagonal lines, that slant to the left from top points to bottom points.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DashedHorizontal">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dashed Horizontal" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies dashed horizontal lines.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DashedVertical">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dashed Vertical" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies dashed vertical lines.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SmallConfetti">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Small Confetti" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a hatch that has the appearance of confetti.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LargeConfetti">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Large Confetti" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a hatch that has the appearance of confetti, and is composed of larger pieces than Small Confetti hatch style.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ZigZag">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Zig-Zag" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies horizontal lines that are composed of zigzags.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Wave">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Wave" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies horizontal lines that are composed of tildes.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DiagonalBrick">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Diagonal Brick" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a hatch that has the appearance of layered bricks that slant to the left from top points to bottom points.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="HorizontalBrick">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Horizontal Brick" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a hatch that has the appearance of horizontally layered bricks.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Weave">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Weave" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a hatch that has the appearance of a woven material.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Plaid">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Plaid" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a hatch that has the appearance of a plaid material.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Divot">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Divot" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a hatch that has the appearance of divots.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DottedGrid">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dotted Grid" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies horizontal and vertical lines, each of which is composed of dots, that cross.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DottedDiamond">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Dotted Diamond" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies forward diagonal and backward diagonal lines, each of which is composed of dots, that cross.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Shingle">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Shingle" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a hatch that has the appearance of diagonally layered shingles that slant to the right from top points to bottom points.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Trellis">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Trellis" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a hatch that has the appearance of a trellis.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Sphere">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Sphere" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a hatch that has the appearance of spheres laid adjacent to one another.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SmallGrid">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Small Grid" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies horizontal and vertical lines that cross and are spaced 50 percent closer together than Cross hatch style.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SmallCheckerBoard">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Small Checker Board" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a hatch that has the appearance of a checkerboard.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LargeCheckerBoard">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Large Checker Board" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a hatch that has the appearance of a checkerboard with squares that are twice the size of Small Checker Board hatch style.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OutlinedDiamond">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="Outlined Diamond" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies forward diagonal and backward diagonal lines that cross but are not antialiased.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SolidDiamond">
+        <xs:annotation>
+          <xs:appinfo>
+            <ListItem Display="SolidDiamond" xmlns="urn:FlashCardsDropDownInfo">
+              <![CDATA[Specifies a hatch that has the appearance of a checkerboard placed diagonally.]]>
+            </ListItem>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
